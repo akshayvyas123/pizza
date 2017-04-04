@@ -62,4 +62,5 @@ app.post('/webhook/', function (req, res)
   };
     res.write(JSON.stringify(responseBody));
     res.end();
-    });
+    };
+})
