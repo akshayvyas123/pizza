@@ -1,4 +1,3 @@
-
 const express=require('express')
 const bodyParser=require('body-parser')
 const request=require('request')
@@ -55,7 +54,7 @@ app.post('/webhook/', function (req, res)
         "title":"Non-Veg",
         "payload":"I Want a nonveg pizza "
       },
-      }
+      
     ]
   }          
    },
@@ -63,6 +62,4 @@ app.post('/webhook/', function (req, res)
   };
     res.write(JSON.stringify(responseBody));
     res.end();
-    }
-});
-   
+    });
