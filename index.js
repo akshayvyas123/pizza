@@ -66,31 +66,4 @@ app.post('/webhook/', function (req, res)
     res.end();
     }
 });
-    }
    
-else(req.body.result.action == 'getJoke'){
-    request(
-        {headers : {'Content-Type': 'application/json',
-                   'X-Mashape-Key' : 'JuE3m8pqggmshVRyCKCGB3hInjubp1mFB7bjsnQNO4tRSHIb4s'},
-        uri : 'https://webknox-jokes.p.mashape.com/jokes/random?maxLength=100',
-         methhod : 'POST'
-        }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-        var b=JSON.parse(body)
-        console.log(b.joke); // Show the HTML for the Modulus homepage.
-         // Show the HTML for the Modulus homepage.
-
-     var responseBody = 
-   {
-   
-  };
-    res.write(JSON.stringify(responseBody));
-    res.end();
-    }
-});
-    
-    
-}
-
-  // res.send('yay!');
-})
