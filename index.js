@@ -36,30 +36,29 @@ app.post('/webhook/', function (req, res)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     
-    if(req.body.result.action == 'getLyrics'){
-    artist=req.body.result.parameters.artist;
-     track=req.body.result.parameters.track;
-    console.log(artist);
-    console.log(track);
+    if(req.body.result.action == 'typepizza'){
    
-    request(
-        {headers : {'Content-Type': 'application/json',
-                   'X-Mashape-Key' : 'JuE3m8pqggmshVRyCKCGB3hInjubp1mFB7bjsnQNO4tRSHIb4s'},
-        uri : 'https://musixmatchcom-musixmatch.p.mashape.com/wsr/1.1/matcher.lyrics.get?q_artist=' + artist + '&q_track=' + track,
-         methhod : 'POST',
-         timeout: 2000
-        }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-        var a=JSON.parse(body)
-        console.log(a.lyrics_body); // Show the HTML for the Modulus homepage.
-
      var responseBody = 
    {
-    //data:{
-             "speech":a.lyrics_body,
-          "displayText":"there is good news"
-    //}           
-  // }
+    "data":{
+      
+       "facebook": {
+    "text":"What type of pizza would you like?",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Veg",
+        "payload":"I Want a veg pizza "
+      },
+        {
+        "content_type":"text",
+        "title":"Non-Veg",
+        "payload":"I Want a nonveg pizza "
+      }
+    ]
+  }
+             
+   }
   };
     res.write(JSON.stringify(responseBody));
     res.end();
