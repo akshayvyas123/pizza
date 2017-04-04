@@ -1,11 +1,9 @@
-// npm packages 
-var unirest = require('unirest');
+
 const express=require('express')
 const bodyParser=require('body-parser')
 const request=require('request')
 const app=express()
-var artist = "";
-var track = "";
+
 
 app.set('port',(process.env.PORT))
 
