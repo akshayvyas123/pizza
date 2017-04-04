@@ -33,11 +33,13 @@ console.log('running on port ',app.get('port'))
 
 app.post('/webhook/', function (req, res) 
 {
+  
+  console.log("IN the webhook code ");
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     
     if(req.body.result.action == 'typepizza'){
-   
+   console.log("IN the pizza code ");
      var responseBody = 
    {
     "data":{
