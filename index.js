@@ -48,12 +48,15 @@ app.post('/webhook/', function (req, res)
       {
         "content_type":"text",
         "title":"Veg",
-        "payload":"I Want a veg pizza "
+        "payload":"I Want a veg pizza ",
+        "image_url":"http://1larwpdbnvqpcz84vezsi9nu.wpengine.netdna-cdn.com/wp-content/uploads/2014/03/Veggie-heart.jpg"
       },
         {
         "content_type":"text",
         "title":"Non-Veg",
-        "payload":"I Want a nonveg pizza "
+        "payload":"I Want a nonveg pizza ",
+        "image_url":"http://s3.india.com/wp-content/uploads/2014/09/non-veg.jpg"
+      },
       }
     ]
   }          
