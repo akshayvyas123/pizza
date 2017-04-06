@@ -394,8 +394,9 @@ function  sendWeather(req,res)
             
             
             
-            });
-            
+            })
+            res.write(json);
+    res.end();
         
     }
 })
