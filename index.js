@@ -383,12 +383,13 @@ function  sendWeather(req,res)
             
            var img="http://openweathermap.org/img/w/"+icon+".png";
             var txt="The weather is" + desc + "and the temperature is " + temperature +"degree centrigrade"
+            console.log(txt);
             var json=JSON.stringify(
             {
                 data:{
    "facebook": {
     "text":txt,
-       "img_url":img
+       "image_url":img
    }
                 },
     source : "text"
