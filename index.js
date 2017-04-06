@@ -49,6 +49,11 @@ app.post('/webhook/', function (req, res)
     {
        sendWeather(req,res);
     }
+    
+    if(req.body.result.action == 'getLyrics')
+    {
+       sendLyrics(req,res);
+    }
 })
 
 
@@ -409,4 +414,40 @@ function  sendWeather(req,res)
         
     }
 })
+}
+
+
+
+function sendLyrics(req,res){
+    
+    artist=req.body.result.parameters.artist;
+     track=req.body.result.parameters.track;
+    console.log(artist);
+    console.log(track);
+   
+    request(
+        {headers : {'Content-Type': 'application/json',
+                   'X-Mashape-Key' : 'JuE3m8pqggmshVRyCKCGB3hInjubp1mFB7bjsnQNO4tRSHIb4s'},
+        uri : 'https://musixmatchcom-musixmatch.p.mashape.com/wsr/1.1/matcher.lyrics.get?q_artist=' + artist + '&q_track=' + track,
+         methhod : 'POST',
+         timeout: 2000
+        }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        var a=JSON.parse(body)
+        console.log(a.lyrics_body); // Show the HTML for the Modulus homepage.
+
+     var responseBody = 
+   {
+    //data:{
+             "speech":a.lyrics_body,
+          "displayText":"there is good news"
+    //}           
+  // }
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+    }
+});
+    
+    
 }
