@@ -372,9 +372,9 @@ function  sendWeather(req,res)
     request('api.openweathermap.org/data/2.5/weather?q=' +city + '&units=metric&APPID=3dc9a29630ee9a892dcd672335bf6e6b',function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var c = JSON.parse(body);
-            var desc=c.weather[0].description;
+            var desc=c.weather.description;
             var temperature=c.main.temp;
-            var icon=c.weather[0].icon;
+            var icon=c.weather.icon;
             
             
             
