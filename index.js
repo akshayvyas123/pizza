@@ -37,8 +37,13 @@ app.post('/webhook/', function (req, res)
     
     if(req.body.result.action == 'typepizza')
     {
-        
-        
+       sendPizza(req,res);
+    }
+})
+
+
+function sendPizza(req,res){
+       
         if(req.body.result.resolvedQuery == 'i want to order a pizza'||req.body.result.resolvedQuery == 'pizza') 
             {
         
@@ -233,11 +238,5 @@ app.post('/webhook/', function (req, res)
     res.write(JSON.stringify(responseBody));
     res.end();
        
-       }
-        
-        
-        
-    
-    }
-  
-})
+       }   
+}
