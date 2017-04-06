@@ -63,4 +63,43 @@ app.post('/webhook/', function (req, res)
     res.write(JSON.stringify(responseBody));
     res.end();
     };
+  
+  if(req.body.result.action == 'orderpizza.orderpizza-custom'){
+   console.log("IN the pizza code ");
+     var responseBody = 
+   {
+    "data":{
+      
+       "facebook": {
+    "text":"What type of topping would you like?",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Onions",
+        "payload":"onions "
+      },
+        {
+        "content_type":"text",
+        "title":"cheese",
+        "payload":" cheese "
+      },
+      {
+        "content_type":"text",
+        "title":"Mushrooms",
+        "payload":" Mushrooms "
+      },
+      {
+        "content_type":"text",
+        "title":"black olives",
+        "payload":"  black olives"
+      },
+      
+    ]
+  }          
+   },
+     "source" : "text"
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+    };
 })
