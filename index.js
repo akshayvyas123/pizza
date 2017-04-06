@@ -39,6 +39,11 @@ app.post('/webhook/', function (req, res)
     {
        sendPizza(req,res);
     }
+    
+     if(req.body.result.action == 'getNews')
+    {
+       sendNews(req,res);
+    }
 })
 
 
@@ -239,4 +244,42 @@ function sendPizza(req,res){
     res.end();
        
        }   
+}
+
+
+function sendNews(req,res){
+    if(req.body.result.resolvedQuery == 'news' || req.body.result.resolvedQuery == 'latest news' )
+        {
+            console.log("IN the news code now sending user source options");
+     var responseBody = 
+   {
+    "data":{
+      
+       "facebook": {
+    "text":"Select source",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"CNN",
+        "payload":"news cnn"
+      },
+        {
+        "content_type":"text",
+        "title":"ESPN",
+        "payload":"news espn"
+      },
+        {
+        "content_type":"text",
+        "title":"THE HINDU",
+        "payload":"news  the hindu"
+      }
+      
+    ]
+  }          
+   },
+     "source" : "text"
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+        }
 }
