@@ -378,7 +378,7 @@ function  sendWeather(req,res)
             
             
             
-            
+            console.log(desc);
             
             var json=JSON.stringify(
             {
