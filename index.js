@@ -36,7 +36,12 @@ app.post('/webhook/', function (req, res)
     res.setHeader('Content-Type', 'application/json');
     
     if(req.body.result.action == 'typepizza'){
-   console.log("IN the pizza code ");
+        
+        
+        if(req.body.result.resolvedQuery == 'i want to order a pizza'||req.body.result.resolvedQuery == 'i want to order a pizza') 
+            {
+        
+   console.log("IN the pizza code now sending user veg or non veg option");
      var responseBody = 
    {
     "data":{
@@ -47,12 +52,12 @@ app.post('/webhook/', function (req, res)
       {
         "content_type":"text",
         "title":"Veg",
-        "payload":"veg "
+        "payload":"veg pizza"
       },
         {
         "content_type":"text",
         "title":"Non-Veg",
-        "payload":" nonveg "
+        "payload":"nonveg pizza"
       },
       
     ]
@@ -62,36 +67,31 @@ app.post('/webhook/', function (req, res)
   };
     res.write(JSON.stringify(responseBody));
     res.end();
-    };
-  
-  if(req.body.result.action == 'orderpizza.orderpizza-custom'){
-   console.log("IN the Toppings code ");
+    }
+    
+    
+    
+    
+    if(req.body.result.resolvedQuery == 'nonveg pizza'||req.body.result.resolvedQuery == 'veg pizza')
+       {
+              
+   console.log("IN the pizza code now sending user topping's option ");
      var responseBody = 
    {
     "data":{
       
        "facebook": {
-    "text":"What type of topping would you like?",
+    "text":"What type of toppings would you like?",
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Onions",
-        "payload":"onions "
+        "title":"onions",
+        "payload":"onions pizza topping"
       },
         {
         "content_type":"text",
-        "title":"cheese",
-        "payload":" cheese "
-      },
-      {
-        "content_type":"text",
-        "title":"Mushrooms",
-        "payload":" Mushrooms "
-      },
-      {
-        "content_type":"text",
-        "title":"black olives",
-        "payload":"  black olives"
+        "title":"Mushroom",
+        "payload":"mushroom pizza topping"
       },
       
     ]
@@ -101,5 +101,9 @@ app.post('/webhook/', function (req, res)
   };
     res.write(JSON.stringify(responseBody));
     res.end();
-    };
+       
+       }
+    
+    }
+  
 })
