@@ -176,33 +176,33 @@ app.post('/webhook/', function (req, res)
        
        }
         
-        if(req.body.result.resolvedQuery == 'pesto sauce pizza'||req.body.result.resolvedQuery == 'tandoori sauce pizza' || req.body.result.resolvedQuery == 'alfredo sauce pizza' )
+       
+         if(req.body.result.resolvedQuery == 'alfredo sauce pizza'||req.body.result.resolvedQuery == 'tandoori sauce pizza' || req.body.result.resolvedQuery == 'pesto sauce pizza' )
        {
               
-   console.log("IN the pizza code now sending user sauce options");
+   console.log("IN the pizza code now sending user size options");
      var responseBody = 
    {
     "data":{
       
        "facebook": {
-    "text":"Size?",
+    "text":"size",
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Small",
-        "payload":"Small size"
+        "title":"small",
+        "payload":"small size pizza"
       },
         {
         "content_type":"text",
-        "title":"Large",
-        "payload":"Large size"
+        "title":"medium",
+        "payload":"medium size pizza"
       },
         {
         "content_type":"text",
-        "title":"Medium",
-        "payload":"Medium Size"
+        "title":"large",
+        "payload":"large size pizza"
       }
-        
       
     ]
   }          
@@ -213,7 +213,6 @@ app.post('/webhook/', function (req, res)
     res.end();
        
        }
-        
         
         
         
