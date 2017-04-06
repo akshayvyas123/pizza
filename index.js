@@ -435,7 +435,7 @@ function sendLyrics(req,res){
     if (!error && response.statusCode == 200) {
         var a=JSON.parse(body)
     var lyrics=a.lyrics_body; // Show the HTML for the Modulus homepage.
-       var c =  lyrics.replace("******* This Lyrics is NOT for Commercial use *******(1409607470331)" , " ");
+       var c =  lyrics.replace("******* This Lyrics is NOT for Commercial use *******" , " ");
      var responseBody = 
    {
     //data:{
