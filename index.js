@@ -282,4 +282,56 @@ function sendNews(req,res){
     res.write(JSON.stringify(responseBody));
     res.end();
         }
+    
+    if(req.body.result.parameters.news-source == 'the hindu' ||req.body.result.parameters.news-source == 'cnn' || req.body.result.parameters.news-source == 'espn' )
+        {
+            var source=""
+            if(req.body.result.parameters.news-source == 'the hindu')
+                {
+                    source="the-hindu"
+                }
+            if(req.body.result.parameters.news-source == 'cnn')
+                {
+                    source="cnn"
+                }
+            if(req.body.result.parameters.news-source == 'espn')
+                {
+                    source="espn"
+                }
+            
+            queryNews(req,res,source);
+        }
 }
+
+
+
+function queryNews(req,res,source)
+{
+    
+    var urlsource="https://newsapi.org/v1/articles?source="+source+"&sortBy=latest&apiKey=efe7d0056b3f440688d97aa0d13f76f1";
+     request(urlsource, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        var a=JSON.parse(body)
+        console.log(a.articles[0].description); // Show the HTML for the Modulus homepage.
+
+     var responseBody = 
+   {
+     "data":{
+      
+       "facebook": {
+    "text":"check logs",
+    
+      
+    
+  }          
+   },
+     "source" : "text"
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+    
+
+    }
+     })
+}
+             
