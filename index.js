@@ -224,29 +224,8 @@ app.post('/webhook/', function (req, res)
     "data":{
       
        "facebook": {
-   
-           //11111111111111111111111111111111111111111111111111111111111111111111111111
-           
-              "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements":[
-           {
-            "title":"Welcome to Photoawe",
-            "image_url":"https://photoawe.files.wordpress.com/2016/05/20160110_150654-01.jpeg?w=1180",
-            "subtitle":"We\'ve got the right photo for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://photoawe.wordpress.com"
-             
-            }
-                
-          }
-        ]
-      }
-              }
-//111111111111111111111111111111111111111111111111111111111111111111111111111111111111    
+   "text" : "Your pizza has been ordered"
+          
        }
    },
      "source" : "text"
