@@ -44,6 +44,11 @@ app.post('/webhook/', function (req, res)
     {
        sendNews(req,res);
     }
+    
+    if(req.body.result.action == 'openWeatherMap')
+    {
+       sendWeather(req,res);
+    }
 })
 
 
@@ -359,4 +364,38 @@ function queryNews(req,res,source)
     }
      })
 }
-             
+
+
+function  sendWeather(req,res)
+{
+    var city = req.body.result.parameters["geo-city"];
+    request('api.openweathermap.org/data/2.5/weather?q=' +city + '&units=metric&APPID=3dc9a29630ee9a892dcd672335bf6e6b',function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var c = JSON.parse(body);
+            var desc=c.weather[0].description;
+            var temperature=c.main.temp;
+            var icon=c.weather[0].icon;
+            
+            
+            
+            
+            
+            var json=JSON.stringify(
+            {
+                data:{
+   "facebook": {
+    "text":"The weather is" + desc + "and the temperature is " + temperature +"degree centrigrade",
+       "img_url":"http://openweathermap.org/img/w/"+icon+".png"
+   },
+    source : "text"
+                
+            
+            }
+            
+            
+            
+            );
+            
+        }
+    })
+}
