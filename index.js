@@ -434,12 +434,12 @@ function sendLyrics(req,res){
         }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         var a=JSON.parse(body)
-        console.log(a.lyrics_body); // Show the HTML for the Modulus homepage.
-
+    var lyrics=a.lyrics_body; // Show the HTML for the Modulus homepage.
+       var c =  lyrics.replace("******* This Lyrics is NOT for Commercial use *******" , " ");
      var responseBody = 
    {
     //data:{
-             "speech":a.lyrics_body,
+             "speech":c,
           "displayText":"there is good news"
     //}           
   // }
