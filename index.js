@@ -308,8 +308,8 @@ function sendNews(req,res){
 function queryNews(req,res,source)
 {
     
-    var urlsource="https://newsapi.org/v1/articles?source=" + source + "&sortBy=top&apiKey=efe7d0056b3f440688d97aa0d13f76f1";
-     request(urlsource, function (error, response, body) {
+   // var urlsource="https://newsapi.org/v1/articles?source=" + source + "&sortBy=top&apiKey=efe7d0056b3f440688d97aa0d13f76f1";
+     request("https://newsapi.org/v1/articles?source=" + source + "&sortBy=top&apiKey=efe7d0056b3f440688d97aa0d13f76f1", function (error, response, body) {
     if (!error && response.statusCode == 200) {
         var a=JSON.parse(body)
         console.log(a.articles[0].description); // Show the HTML for the Modulus homepage.
