@@ -65,7 +65,7 @@ app.post('/webhook/', function (req, res)
     };
   
   if(req.body.result.action == 'orderpizza.orderpizza-custom'){
-   console.log("IN the pizza code ");
+   console.log("IN the Toppings code ");
      var responseBody = 
    {
     "data":{
