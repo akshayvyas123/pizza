@@ -461,12 +461,41 @@ function sendLyrics(req,res){
 
 function sendHotel(req,res){
     if(req.body.result.resolvedQuery == 'book a hotel'){
-        if(req.body.result.parameters["geo-city"]!=" " && req.body.result.parameters.date!=" "){
+        if(req.body.result.parameters["geo-city"]!=" " && req.body.result.parameters.date!=" " && req.body.result.parameters.number!=" " ){
             
             
             console.log("hi");
-             res.write(JSON.stringify("{ }"));
+             var responseBody = 
+   {
+    "data":{
+      
+       "facebook": {
+    "text":"Select hotel chain",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Taj",
+        "payload":"hotel taj"
+      },
+        {
+        "content_type":"text",
+        "title":"marriott",
+        "payload":"hotel marriott"
+      },
+        {
+        "content_type":"text",
+        "title":"novotel",
+        "payload":"hotel novotel"
+      }
+      
+    ]
+  }          
+   },
+     "source" : "text"
+  };
+    res.write(JSON.stringify(responseBody));
     res.end();
+             
         }
     }
     
