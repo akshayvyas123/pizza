@@ -238,22 +238,10 @@ app.post('/webhook/', function (req, res)
             "subtitle":"We\'ve got the right photo for everyone.",
             "default_action": {
               "type": "web_url",
-              "url": "https://photoawe.wordpress.com",
-              "messenger_extensions": true,
-              "webview_height_ratio": "tall",
-              "fallback_url": "https://photoawe.wordpress.com"
-            },
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://photoawe.wordpress.com",
-                "title":"View Website"
-              },{
-                "type":"postback",
-                "title":"Start Chatting",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }              
-            ]      
+              "url": "https://photoawe.wordpress.com"
+             
+            }
+                
           }
         ]
       }
@@ -261,7 +249,7 @@ app.post('/webhook/', function (req, res)
 //111111111111111111111111111111111111111111111111111111111111111111111111111111111111    
        }
    },
-     "source" : "hat company"
+     "source" : "text"
   };
     res.write(JSON.stringify(responseBody));
     res.end();
