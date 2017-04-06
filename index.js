@@ -47,12 +47,12 @@ app.post('/webhook/', function (req, res)
       {
         "content_type":"text",
         "title":"Veg",
-        "payload":"I Want a veg pizza "
+        "payload":"veg "
       },
         {
         "content_type":"text",
         "title":"Non-Veg",
-        "payload":"I Want a nonveg pizza "
+        "payload":" nonveg "
       },
       
     ]
