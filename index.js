@@ -104,6 +104,40 @@ app.post('/webhook/', function (req, res)
     res.end();
        
        }
+        
+        
+         if(req.body.result.resolvedQuery == 'onions pizza topping'||req.body.result.resolvedQuery == 'mushroom pizza topping')
+       {
+              
+   console.log("IN the pizza code now sending user crust options");
+     var responseBody = 
+   {
+    "data":{
+      
+       "facebook": {
+    "text":"What type of crust would you like?",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"thick",
+        "payload":"thick crust pizza"
+      },
+        {
+        "content_type":"text",
+        "title":"thin",
+        "payload":"thin crust pizza"
+      },
+      
+    ]
+  }          
+   },
+     "source" : "text"
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+       
+       }
+        
     
     }
   
