@@ -233,20 +233,20 @@ app.post('/webhook/', function (req, res)
         "template_type":"generic",
         "elements":[
            {
-            "title":"Welcome to Peter\'s Hats",
-            "image_url":"https://petersfancybrownhats.com/company_image.png",
-            "subtitle":"We\'ve got the right hat for everyone.",
+            "title":"Welcome to Photoawe",
+            "image_url":"https://photoawe.files.wordpress.com/2016/05/20160110_150654-01.jpeg?w=1180",
+            "subtitle":"We\'ve got the right photo for everyone.",
             "default_action": {
               "type": "web_url",
-              "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+              "url": "https://photoawe.wordpress.com",
               "messenger_extensions": true,
               "webview_height_ratio": "tall",
-              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+              "fallback_url": "https://photoawe.wordpress.com"
             },
             "buttons":[
               {
                 "type":"web_url",
-                "url":"https://petersfancybrownhats.com",
+                "url":"https://photoawe.wordpress.com",
                 "title":"View Website"
               },{
                 "type":"postback",
@@ -261,7 +261,7 @@ app.post('/webhook/', function (req, res)
 //111111111111111111111111111111111111111111111111111111111111111111111111111111111111    
        }
    },
-     "source" : "text"
+     "source" : "hat company"
   };
     res.write(JSON.stringify(responseBody));
     res.end();
