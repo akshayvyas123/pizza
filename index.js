@@ -314,20 +314,45 @@ function queryNews(req,res,source)
         var a=JSON.parse(body)
         console.log(a.articles[0].description); // Show the HTML for the Modulus homepage.
 
-     var responseBody = 
-   {
-     "data":{
-      
-       "facebook": {
-    "text":"check logs",
-    
-      
-    
-  }          
+
+        
+        var inko = []
+  console.log(body)
+  var i=0;
+    a.articles.forEach ( function(ink) {
+      if(i<5)
+      {
+  inko.push({
+            "title":ink.title,
+            "image_url":ink.urlToImage,
+             "subtitle":ink.description,
+           "default_action": {
+              "type": "web_url",
+              "url":ink.url,
+               }
+  })
+      i++
+    }
+  }
+  )
+  
+  var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"generic",
+        "elements":inko
+      }
+      }
+    }
    },
-     "source" : "text"
-  };
-    res.write(JSON.stringify(responseBody));
+    source : "text"
+  })
+        
+  
+    res.write(json);
     res.end();
     
 
