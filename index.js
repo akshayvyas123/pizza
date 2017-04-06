@@ -461,7 +461,7 @@ function sendLyrics(req,res){
 
 function sendHotel(req,res){
     if(req.body.result.resolvedQuery == 'book a hotel'){
-        if(req.body.result.parameters["geo-city"]!="" && req.body.result.parameters.date!=""){
+        if(req.body.result.parameters["geo-city"]!=" " && req.body.result.parameters.date!=" "){
             console.log("hi");
         }
     }
