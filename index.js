@@ -387,11 +387,12 @@ function  sendWeather(req,res)
    "facebook": {
     "text":"The weather is" + desc + "and the temperature is " + temperature +"degree centrigrade",
        "img_url":"http://openweathermap.org/img/w/"+icon+".png"
-   },
+   }
+                },
     source : "text"
                 
             
-            }
+            
             
             
             
