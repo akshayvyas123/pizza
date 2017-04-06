@@ -35,10 +35,11 @@ app.post('/webhook/', function (req, res)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     
-    if(req.body.result.action == 'typepizza'){
+    if(req.body.result.action == 'typepizza')
+    {
         
         
-        if(req.body.result.resolvedQuery == 'i want to order a pizza'||req.body.result.resolvedQuery == 'i want to order a pizza') 
+        if(req.body.result.resolvedQuery == 'i want to order a pizza'||req.body.result.resolvedQuery == 'pizza') 
             {
         
    console.log("IN the pizza code now sending user veg or non veg option");
