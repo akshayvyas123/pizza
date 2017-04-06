@@ -176,7 +176,43 @@ app.post('/webhook/', function (req, res)
        
        }
         
+        if(req.body.result.resolvedQuery == 'pesto sauce pizza'||req.body.result.resolvedQuery == 'tandoori sauce pizza' || req.body.result.resolvedQuery == 'alfredo sauce pizza' )
+       {
+              
+   console.log("IN the pizza code now sending user sauce options");
+     var responseBody = 
+   {
+    "data":{
+      
+       "facebook": {
+    "text":"Size?",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Small",
+        "payload":"Small size"
+      },
+        {
+        "content_type":"text",
+        "title":"Large",
+        "payload":"Large size"
+      },
+        {
+        "content_type":"text",
+        "title":"Medium",
+        "payload":"Medium Size"
+      },
         
+      
+    ]
+  }          
+   },
+     "source" : "text"
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+       
+       }
         
         
         
