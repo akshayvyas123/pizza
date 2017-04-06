@@ -283,18 +283,18 @@ function sendNews(req,res){
     res.end();
         }
     
-    if(req.body.result.parameters.news-source == 'the hindu' ||req.body.result.parameters.news-source == 'cnn' || req.body.result.parameters.news-source == 'espn' )
+    if(req.body.result.parameters.newssource == 'the hindu' ||req.body.result.parameters.newssource == 'cnn' || req.body.result.parameters.newssource == 'espn' )
         {
             var source=""
-            if(req.body.result.parameters.news-source == 'the hindu')
+            if(req.body.result.parameters.newssource == 'the hindu')
                 {
                     source="the-hindu"
                 }
-            if(req.body.result.parameters.news-source == 'cnn')
+            if(req.body.result.parameters.newssource == 'cnn')
                 {
                     source="cnn"
                 }
-            if(req.body.result.parameters.news-source == 'espn')
+            if(req.body.result.parameters.newssource == 'espn')
                 {
                     source="espn"
                 }
