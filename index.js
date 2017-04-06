@@ -298,7 +298,7 @@ function sendNews(req,res){
                 {
                     source="espn"
                 }
-            
+            console.log(source);
             queryNews(req,res,source);
         }
 }
@@ -307,7 +307,7 @@ function sendNews(req,res){
 
 function queryNews(req,res,source)
 {
-    
+    console.log('inside query news')
    // var urlsource="https://newsapi.org/v1/articles?source=" + source + "&sortBy=top&apiKey=efe7d0056b3f440688d97aa0d13f76f1";
      request("https://newsapi.org/v1/articles?source=" + source + "&sortBy=top&apiKey=efe7d0056b3f440688d97aa0d13f76f1", function (error, response, body) {
     if (!error && response.statusCode == 200) {
