@@ -384,22 +384,26 @@ function  sendWeather(req,res)
            var img="http://openweathermap.org/img/w/"+icon+".png";
             var txt="The weather is" + desc + "and the temperature is " + temperature +"degree centrigrade"
             console.log(txt);
-            var json=JSON.stringify(
-            {
-                data:{
+           var json = JSON.stringify({
+   data:{
    "facebook": {
-    "text":txt,
-       "image_url":img
-   }
-                },
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"generic",
+        "elements":[
+           {
+            "title":"Weather in "+city,
+            "image_url":img,
+            "subtitle":txt
+           }//element
+           ]//element
+      }//payload
+      }//attachment
+    }//facebook
+   },//data
     source : "text"
-                
-            
-            
-            
-            
-            
-            })
+  })//json
             res.write(json);
     res.end();
         
