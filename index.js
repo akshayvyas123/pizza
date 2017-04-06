@@ -215,7 +215,25 @@ app.post('/webhook/', function (req, res)
        }
         
         
-        
+        if(req.body.result.resolvedQuery == 'small size pizza'||req.body.result.resolvedQuery == 'medium size pizza' || req.body.result.resolvedQuery == 'large size pizza' )
+       {
+              
+   console.log("IN the pizza code now sending user size options");
+     var responseBody = 
+   {
+    "data":{
+      
+       "facebook": {
+    "text":"Your pizza Has been ordered",
+    
+  }          
+   },
+     "source" : "text"
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+       
+       }
         
         
         
