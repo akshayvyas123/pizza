@@ -59,6 +59,11 @@ app.post('/webhook/', function (req, res)
     {
        sendHotel(req,res);
     }
+    
+     if(req.body.result.action == 'getVideo')
+    {
+       sendVideo(req,res);
+    }
 })
 
 
@@ -499,4 +504,68 @@ function sendHotel(req,res){
         }
     }
     
+}
+
+function sendVideo(req,res)
+{
+    console.log("INSIDE VIDEO MODULE");
+    if(req.body.result.resolvedQuery == 'youtube videos'){
+        
+        var channel = req.body.result.parameters.val;
+        
+        request("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCsojMsfWiHhc4RwlXmfGBbNy747m5oAk9&part=snippet&q=" + channel , function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        var a=JSON.parse(body)
+      var inko = []
+        var i=0;
+     a.articles.forEach ( function(ink)
+     {
+        if(i<5)
+        {
+            if(ink.id.kind = "youtube#channel")
+                {
+                     id = "channel/"+ink.id.channelId
+                }
+            else{
+                 id = "watch?v="+ink.id.videoId
+            }
+            
+            
+            inko.push({
+                "title":ink.snippet.title,
+            "image_url":ink.snippet.thumbnails.high.url,
+             "subtitle":ink.snippet.description,
+           "default_action": {
+              "type": "web_url",
+              "url":"https://www.youtube.com/"+id,
+               }
+                
+                
+                
+            })
+            i++;
+        }
+                         })
+        
+        var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"generic",
+        "elements":inko
+      }
+      }
+    }
+   },//data
+    source : "text"
+  })//json
+       console.log(json)
+
+  console.log(inko)
+  response.end(json)
+    }
+})
+    }
 }
