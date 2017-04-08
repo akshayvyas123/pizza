@@ -538,9 +538,6 @@ function sendVideo(req,res)
               "type": "web_url",
               "url":"https://www.youtube.com/"+id,
                }
-                
-                
-                
             })
             i++;
         }
@@ -563,7 +560,6 @@ function sendVideo(req,res)
        console.log(json)
 
   console.log(inko)
-  response.end(json)
                res.write(json);
         res.end();
     }
