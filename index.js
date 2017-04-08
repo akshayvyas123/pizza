@@ -518,7 +518,7 @@ function sendVideo(req,res)
         var a=JSON.parse(body)
       var inko = []
         var i=0;
-     a.articles.forEach ( function(ink)
+     a.items.forEach ( function(ink)
      {
         if(i<5)
         {
