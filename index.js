@@ -509,7 +509,6 @@ function sendHotel(req,res){
 function sendVideo(req,res)
 {
     console.log("INSIDE VIDEO MODULE");
-    if(req.body.result.resolvedQuery == 'youtube videos'){
         
         var channel = req.body.result.parameters.val;
         
@@ -568,4 +567,3 @@ function sendVideo(req,res)
     }
 })
     }
-}
