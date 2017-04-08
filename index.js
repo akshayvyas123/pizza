@@ -509,11 +509,10 @@ function sendHotel(req,res){
 function sendVideo(req,res)
 {
     console.log("INSIDE VIDEO MODULE");
-        if(req.body.result.resolvedQuery == 'youtube videos')
-            {
-        var channel = req.body.result.parameters.val;
         
-        request("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCsojMsfWiHhc4RwlXmfGBbNy747m5oAk9&part=snippet&q=" + channel , function (error, response, body) {
+        var query = req.body.result.parameters.val;
+        
+        request("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCsojMsfWiHhc4RwlXmfGBbNy747m5oAk9&part=snippet&q=" + query , function (error, response, body) {
     if (!error && response.statusCode == 200) {
         var a=JSON.parse(body)
       var inko = []
@@ -566,4 +565,3 @@ function sendVideo(req,res)
     }
 })
     }
-}
