@@ -564,6 +564,7 @@ function sendVideo(req,res)
 
   console.log(inko)
   response.end(json)
+               res.write(json);
     }
 })
     }
