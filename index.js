@@ -60,7 +60,7 @@ app.post('/webhook/', function (req, res)
        sendHotel(req,res);
     }
     
-     if(req.body.result.action == 'getVideo')
+     if(req.body.result.action == 'getVideos')
     {
        sendVideo(req,res);
     }
