@@ -522,7 +522,7 @@ function sendVideo(req,res)
      {
         if(i<5)
         {
-            if(ink.id.kind = "youtube#channel")
+            if(ink.id.kind == "youtube#channel")
                 {
                      id = "channel/"+ink.id.channelId
                 }
