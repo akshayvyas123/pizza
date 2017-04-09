@@ -576,7 +576,12 @@ function sendMeaning(req,res)
     console.log("In MEANING CODE");
      var word = req.body.result.parameters.word;
     
-     request("https://wordsapiv1.p.mashape.com/words/" + word , function (error, response, body)
+     request({headers : {'Content-Type': 'application/json',
+                   'X-Mashape-Key' : 'JuE3m8pqggmshVRyCKCGB3hInjubp1mFB7bjsnQNO4tRSHIb4s'},
+        uri : "https://wordsapiv1.p.mashape.com/words/" + word,
+         methhod : 'POST',
+         timeout: 2000
+        }, function (error, response, body)
              {
           if (!error && response.statusCode == 200)
               {
