@@ -617,7 +617,7 @@ function  sendTranslation(req,res)
 {
     var target = req.body.result.parameters.target;
     var string = req.body.result.parameters.string;
-    translate(string, {from: 'en', to: target}).then(res => {
+    translate(string, {from: 'en', to: 'nl'}).then(res => {
     console.log(res.text);
         console.log(res.from.text.autoCorrected);
         console.log(res.from.text.value);
