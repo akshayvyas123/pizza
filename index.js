@@ -576,22 +576,21 @@ function sendMeaning(req,res)
     console.log("In MEANING CODE");
      var word = req.body.result.parameters.word;
     console.log(word);
-     request({headers : {'Content-Type': 'application/json',
-                   'X-Mashape-Key' : 'JuE3m8pqggmshVRyCKCGB3hInjubp1mFB7bjsnQNO4tRSHIb4s'},
-        uri : "https://wordsapiv1.p.mashape.com/words/"+word,
+     request(
+         {
+             headers : {
+                "app_id": "c8d9fc8b",
+                "app_key": "4362b8401628e2f5e9cc9740610711d1" },
+        uri : "'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/"+word,
          methhod : 'POST'
         }, function (error, response, body)
              {
           if (!error && response.statusCode == 200)
               {
                  var a=JSON.parse(body) 
-                 var def = a.results[0].definition;
-                  var part = a.results[0].partOfSpeech;
-                  var example = a.examples[0];
-                  console.log(def);
-                  console.log(part);
-                  console.log(example);
-                  var string = "The Meaning of word " + word + "is" + def + "Part of speech" + part + "Usage" + example;
+                 var string = "The meaning of word" + word + "is"
+                                a.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0] + 
+                                "EXAMPLE:" + results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text ;
                   var responseBody = 
    {
     //data:{
