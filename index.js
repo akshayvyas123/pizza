@@ -575,7 +575,7 @@ function sendMeaning(req,res)
 {
     console.log("In MEANING CODE");
      var word = req.body.result.parameters.word;
-    
+    console.log(word);
      request({headers : {'Content-Type': 'application/json',
                    'X-Mashape-Key' : 'JuE3m8pqggmshVRyCKCGB3hInjubp1mFB7bjsnQNO4tRSHIb4s'},
         uri : "https://wordsapiv1.p.mashape.com/words/" + word,
