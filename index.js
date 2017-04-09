@@ -64,6 +64,11 @@ app.post('/webhook/', function (req, res)
     {
        sendVideo(req,res);
     }
+    
+    if(req.body.result.action == 'getMeaning')
+    {
+       sendMeaning(req,res);
+    }
 })
 
 
@@ -565,3 +570,72 @@ function sendVideo(req,res)
     }
 })
     }
+
+function sendMeaning(req,res)
+{
+    console.log("In MEANING CODE");
+     var word = req.body.result.parameters.word;
+    
+     request("https://wordsapiv1.p.mashape.com/words/" + word , function (error, response, body)
+             {
+          if (!error && response.statusCode == 200)
+              {
+                 var a=JSON.parse(body) 
+                 var def = a.results[0].definition;
+                  var part = a.results[0].partOfSpeech;
+                  var example = a.examples[0];
+                  var string = "The Meaning of word " + word + "is" + def + "Part of speech" + part + "Usage" + example;
+                  var responseBody = 
+   {
+    //data:{
+             "speech":string,
+          "displayText":"there is good news"
+    //}           
+  // }
+  };
+    res.write(JSON.stringify(responseBody));
+    res.end();
+              }
+     })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
