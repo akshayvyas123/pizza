@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "start" : "node index.js"
+    "start": "node index.js"
   },
   "author": "akshay vyas",
   "license": "ISC",
   "dependencies": {
+    "apiai": "^4.0.1",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "request": "^2.81.0"
-   
+    "google-translate-api": "^2.2.2",
+    "request": "^2.81.0",
+    "unirest": "^0.5.1"
   }
 }
