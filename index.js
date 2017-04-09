@@ -584,6 +584,9 @@ function sendMeaning(req,res)
                  var def = a.results[0].definition;
                   var part = a.results[0].partOfSpeech;
                   var example = a.examples[0];
+                  console.log(def);
+                  console.log(part);
+                  console.log(example);
                   var string = "The Meaning of word " + word + "is" + def + "Part of speech" + part + "Usage" + example;
                   var responseBody = 
    {
