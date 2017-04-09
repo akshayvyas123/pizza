@@ -588,13 +588,16 @@ function sendMeaning(req,res)
           if (!error && response.statusCode == 200)
               {
                  var a=JSON.parse(body) 
-                
+                var b = a.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0];
+                  var c = results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text;
+                  console.log(b);
+                  console.log(c);
                   var responseBody = 
    {
     //data:{
              "speech":"The meaning of word" + word + "is"
-                                a.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0] + 
-                                "EXAMPLE:" + results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text,
+                                 + b +
+                                "EXAMPLE:" + c,
           "displayText":"there is good news"
     //}           
   // }
