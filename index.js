@@ -597,7 +597,7 @@ function sendMeaning(req,res)
     //data:{
              "speech":"The meaning of word  " + word + " is "
                                  + b +
-                                " EXAMPLE: " + c,
+                                "\n EXAMPLE: " + c,
           "displayText":"there is good news"
     //}           
   // }
