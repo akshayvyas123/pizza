@@ -582,7 +582,7 @@ function sendMeaning(req,res)
                 "app_id": "c8d9fc8b",
                 "app_key": "4362b8401628e2f5e9cc9740610711d1" },
         uri : "'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/"+word,
-         methhod : 'POST'
+        
         }, function (error, response, body)
              {
           if (!error && response.statusCode == 200)
