@@ -595,9 +595,9 @@ function sendMeaning(req,res)
                   var responseBody = 
    {
     //data:{
-             "speech":"The meaning of word" + word + "is"
+             "speech":"The meaning of word  " + word + " is "
                                  + b +
-                                "EXAMPLE:" + c,
+                                " EXAMPLE: " + c,
           "displayText":"there is good news"
     //}           
   // }
