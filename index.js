@@ -579,8 +579,8 @@ function sendMeaning(req,res)
      request(
          {
              headers : {
-                "app_id": "c8d9fc8b",
-                "app_key": "4362b8401628e2f5e9cc9740610711d1" },
+                "app_id": "fc09e1cc",
+                "app_key": "b22eaf897204530940990a0cb97e9067" },
         uri : "'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/"+word,
         
         }, function (error, response, body)
