@@ -70,10 +70,6 @@ app.post('/webhook/', function (req, res)
        sendMeaning(req,res);
     }
     
-     if(req.body.result.action == 'getTranslation')
-    {
-       sendTranslation(req,res);
-    }
 })
 
 
@@ -613,17 +609,3 @@ function sendMeaning(req,res)
      })
 }
 
-function  sendTranslation(req,res)
-{
-    var target = req.body.result.parameters.target;
-    var string = req.body.result.parameters.string;
-    translate(string, {from: 'en', to: 'nl'}).then(res => {
-    console.log(res.text);
-        console.log(res.from.text.autoCorrected);
-        console.log(res.from.text.value);
-        console.log(res.from.text.didYouMean);
-    }
-     ).catch(err => {
-    console.error(err);
-});
-}
