@@ -623,5 +623,7 @@ function  sendTranslation(req,res)
         console.log(res.from.text.value);
         console.log(res.from.text.didYouMean);
     }
-     )
+     ).catch(err => {
+    console.error(err);
+});
 }
