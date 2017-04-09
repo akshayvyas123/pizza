@@ -589,7 +589,7 @@ function sendMeaning(req,res)
               {
                  var a=JSON.parse(body) 
                 var b = a.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0];
-                  var c = results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text;
+                  var c = a.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text;
                   console.log(b);
                   console.log(c);
                   var responseBody = 
