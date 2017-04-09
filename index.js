@@ -403,7 +403,7 @@ function  sendWeather(req,res)
             console.log(temperature);
             
            var img="http://openweathermap.org/img/w/"+icon+".png";
-            var txt="The weather is" + desc + "and the temperature is " + temperature +"degree centrigrade"
+            var txt="The weather is " + desc + " and the temperature is " + temperature +" degree centrigrade"
             console.log(txt);
            var json = JSON.stringify({
    data:{
